@@ -2,6 +2,13 @@ Codebase for Wemos (d1 r1) microcontroler.
 <br/>
 This is for PHSI's science week competition (grade 11 sy 2023-2024)
 
+## Codebase structure
+`src` -> contains the main loop where every peice of the codebase comes together
+<br/>
+`lib` -> contains all necessary code abstraction so that the main loop won't be polluted with code.
+<br/>
+`include` -> contains all third party libraries that's not found in the platform.io registry.
+
 ## What does this codebase do?
 ### Controls the slave arduino.
 The wemos board will send instruction to the slave arduino for it to perform.
