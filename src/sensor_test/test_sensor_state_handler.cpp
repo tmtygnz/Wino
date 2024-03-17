@@ -1,6 +1,12 @@
+#include "soisens.hpp"
 #include "ultsens.hpp"
 
-void soilMoistureSensorTest() {}
+void soilMoistureSensorTest() {
+    for (int i = 0; i != 15; i++) {
+        int data = readSoilMoistureSensor();
+        Serial.println(data);
+    }
+}
 
 void ultrasonicSensorTest() {
     ultsens frontal(D2, D3);
@@ -10,9 +16,12 @@ void ultrasonicSensorTest() {
         float fDist = frontal.dist();
         float lRDist = lateralRight.dist();
         float lLDist = lateralLeft.dist();
-        Serial.println("F: " + String(fDist) + " LR: " + String(lRDist) + 
+        Serial.println("F: " + String(fDist) + " LR: " + String(lRDist) +
                        " LL: " + String(lLDist));
     }
 }
 
-void TestSensors() { ultrasonicSensorTest(); }
+void TestSensors() {
+    ultrasonicSensorTest();
+    soilMoistureSensorTest();
+}

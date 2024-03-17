@@ -4,6 +4,7 @@
 #include "welay.hpp"
 #include <Arduino.h>
 #include <Wire.h>
+#include "soisens.hpp"
 
 int phase = ANIKAPhases::core_setup;
 
@@ -15,8 +16,7 @@ void setup() {
     Wire.begin(8);
 
     Serial.begin(115200);
-    while (!Serial)
-        ;
+    while (!Serial);
     Serial.println("Running at wire 8. Baud rate 115200");
 
     pinMode(D2, INPUT);
@@ -31,9 +31,4 @@ void setup() {
 }
 
 void loop() {
-    float fDist = frontal.dist();
-    float lRDist = lateralRight.dist();
-    float lLDist = lateralLeft.dist();
-    Serial.println("F: " + String(fDist) + " LR: " + String(lRDist) +
-                   " LL: " + String(lLDist));
 }
