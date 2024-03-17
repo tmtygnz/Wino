@@ -1,6 +1,7 @@
 #pragma
 enum ANIKAPhases {
     setup,
+    test_sensors,
     move,
     move_left,
     move_right,
