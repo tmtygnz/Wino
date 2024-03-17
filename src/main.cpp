@@ -1,27 +1,14 @@
+#include <Wire.h>
 #include <Arduino.h>
-#include <SoftwareSerial.h>
-
-const int rxPin = 3;
-const int txPin = 4;
-
-SoftwareSerial communicationSerial(rxPin, txPin);
+#include "state_handler.hpp"
+#include
 
 void setup() {
-    // set serial communication stuffs
-    pinMode(rxPin, INPUT);
-    pinMode(txPin, OUTPUT);
-
+    Wire.begin(8);
     Serial.begin(115200);
-
     while (!Serial);
-    Serial.println("Initializing communication serial");
-
-    communicationSerial.begin(14400);
-    Serial.println("Serial communication initalized");
-}
+    Serial.println("Running at wire 8. Baud rate 115200");
+    }
 
 void loop() {
-    communicationSerial.println("is this data sent?");
-    Serial.println("I have sent the data");
-    delay(1000);
 }
