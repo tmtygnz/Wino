@@ -1,6 +1,6 @@
-#pragma
+#pragma once
 enum ANIKAPhases {
-    setup,
+    core_setup,
     test_sensors,
     move,
     move_left,
@@ -12,3 +12,5 @@ enum ANIKAPhases {
     hydraulic_frontal_up,
     hydraulic_frontal_down,
 };
+
+void SetupPins();

@@ -1,7 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
-const char* ssid = "HUAWEI=2.4g-S49g";
+const char* ssid = "HUAWEI-2.4G-S49g";
 const char* ssidPassword = "UjcXk4Ug";
 
 void SetupWifi() {

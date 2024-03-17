@@ -13,12 +13,12 @@ ultsens::~ultsens() {
 /// @return float, the calculated distance.
 float ultsens::dist() const {
     digitalWrite(this->trig, LOW);
-    delayMicroseconds(2);
+    delayMicroseconds(10);
     digitalWrite(this->trig, HIGH);
-    delayMicroseconds(9);
+    delayMicroseconds(10);
     digitalWrite(this->trig, LOW);
-    noInterrupts();
-    float d = pulseIn(this->echo, HIGH, 23529.4);
-    interrupts();
-    return d / 58.8235;
+
+    float distance = (pulseIn(echo, HIGH)/2)*0.0343;
+    Serial.println(distance);
+    return distance;
 }
