@@ -7,17 +7,22 @@
 
 int phase = ANIKAPhases::core_setup;
 
+ultsens frontal(D2, D3);
+ultsens lateralLeft(D10, D11);
+ultsens lateralRight(D4, D5);
+
 void setup() {
     Wire.begin(8);
 
     Serial.begin(115200);
-    while (!Serial);
+    while (!Serial)
+        ;
     Serial.println("Running at wire 8. Baud rate 115200");
 
     pinMode(D2, INPUT);
     pinMode(D3, OUTPUT);
-    pinMode(D6, INPUT);
-    pinMode(D7, OUTPUT);
+    pinMode(D10, INPUT);
+    pinMode(D11, OUTPUT);
     pinMode(D4, INPUT);
     pinMode(D5, OUTPUT);
 
@@ -25,4 +30,10 @@ void setup() {
     TestSensors();
 }
 
-void loop() {}
+void loop() {
+    float fDist = frontal.dist();
+    float lRDist = lateralRight.dist();
+    float lLDist = lateralLeft.dist();
+    Serial.println("F: " + String(fDist) + " LR: " + String(lRDist) +
+                   " LL: " + String(lLDist));
+}
