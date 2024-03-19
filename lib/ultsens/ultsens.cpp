@@ -17,8 +17,6 @@ float ultsens::dist() const {
     digitalWrite(this->trig, HIGH);
     delayMicroseconds(10);
     digitalWrite(this->trig, LOW);
-    noInterrupts();
     float distance = (pulseIn(echo, HIGH)/2)*0.0343;
-    interrupts();
     return distance;
 }
